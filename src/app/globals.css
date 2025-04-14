@@ -1,94 +1,240 @@
-@import "tailwindcss/preflight";
 @import "tailwindcss";
+@import "tw-animate-css";
 
-@layer base {
-	:root {
-		--background: 0 0% 100%;
-		--foreground: 222.2 84% 4.9%;
-		--card: 0 0% 100%;
-		--card-foreground: 222.2 84% 4.9%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 222.2 84% 4.9%;
-		--primary: 221.2 83.2% 53.3%;
-		--primary-foreground: 210 40% 98%;
-		--secondary: 210 40% 96.1%;
-		--secondary-foreground: 222.2 47.4% 11.2%;
-		--muted: 210 40% 96.1%;
-		--muted-foreground: 215.4 16.3% 46.9%;
-		--accent: 210 40% 96.1%;
-		--accent-foreground: 222.2 47.4% 11.2%;
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 214.3 31.8% 91.4%;
-		--input: 214.3 31.8% 91.4%;
-		--ring: 221.2 83.2% 53.3%;
-		--radius: 0;
+@custom-variant dark (&:is(.dark *));
 
-		/* Neobrutalism specific variables */
-		--neo-shadow-color: 222.2 84% 4.9%;
-		--neo-shadow-size: 5px;
-		--neo-border-size: 2px;
-		--neo-shadow-x: 5px;
-		--neo-shadow-y: 5px;
-		--neo-transition-duration: 0.2s;
+:root {
+	/* Main color schemes - based on provided palette */
 
-		/* Font variables */
-		--font-sans: var(--font-geist-sans);
-		--font-mono: var(--font-geist-mono);
-	}
+	/* Primary - Teal (#A7DBD8 as main) */
+	--primary-main: oklch(83.12% 0.08 196.66); /* #A7DBD8 */
+	--primary-dark: oklch(67.25% 0.08 196.66); /* Darker teal */
+	--primary-darker: oklch(51.38% 0.08 196.66); /* Darkest teal */
 
-	.dark {
-		--background: 222.2 84% 4.9%;
-		--foreground: 210 40% 98%;
-		--card: 222.2 84% 4.9%;
-		--card-foreground: 210 40% 98%;
-		--popover: 222.2 84% 4.9%;
-		--popover-foreground: 210 40% 98%;
-		--primary: 217.2 91.2% 59.8%;
-		--primary-foreground: 222.2 47.4% 11.2%;
-		--secondary: 217.2 32.6% 17.5%;
-		--secondary-foreground: 210 40% 98%;
-		--muted: 217.2 32.6% 17.5%;
-		--muted-foreground: 215 20.2% 65.1%;
-		--accent: 217.2 32.6% 17.5%;
-		--accent-foreground: 210 40% 98%;
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 210 40% 98%;
-		--border: 217.2 32.6% 17.5%;
-		--input: 217.2 32.6% 17.5%;
-		--ring: 224.3 76.3% 48%;
+	/* Secondary - Yellow (#FFDB58 as main) */
+	--secondary-main: oklch(87.03% 0.19 96.42); /* #FFDB58 */
+	--secondary-dark: oklch(71.16% 0.19 96.42); /* Darker yellow */
+	--secondary-darker: oklch(55.29% 0.19 96.42); /* Darkest yellow */
 
-		/* Neobrutalism specific variables - dark mode */
-		--neo-shadow-color: 210 40% 98%;
-		--neo-shadow-size: 5px;
-		--neo-border-size: 2px;
-		--neo-shadow-x: 5px;
-		--neo-shadow-y: 5px;
-	}
+	/* Tertiary - Salmon (#FFA07A as main) */
+	--tertiary-main: oklch(76.11% 0.15 45.43); /* #FFA07A */
+	--tertiary-dark: oklch(60.24% 0.15 45.43); /* Darker salmon */
+	--tertiary-darker: oklch(44.37% 0.15 45.43); /* Darkest salmon */
+
+	/* Skill level mappings */
+	--junior-color: var(--primary-main);
+	--junior-dark: var(--primary-dark);
+	--junior-darker: var(--primary-darker);
+
+	--mid-color: var(--secondary-main);
+	--mid-dark: var(--secondary-dark);
+	--mid-darker: var(--secondary-darker);
+
+	--senior-color: var(--tertiary-main);
+	--senior-dark: var(--tertiary-dark);
+	--senior-darker: var(--tertiary-darker);
+
+	/* System colors */
+	--success: oklch(76.34% 0.18 142.52); /* Green */
+	--success-foreground: oklch(100% 0 0);
+	--warning: oklch(87.03% 0.19 96.42); /* Same as secondary-main (yellow) */
+	--warning-foreground: oklch(0% 0 0);
+	--error: oklch(65.71% 0.199 16.47); /* #FF6B6B */
+	--error-foreground: oklch(100% 0 0);
+	--info: oklch(67.47% 0.1726 259.49); /* Blue */
+	--info-foreground: oklch(100% 0 0);
+
+	/* Core colors */
+	--background: var(--primary-main);
+	--secondary-background: oklch(100% 0 0);
+	--foreground: oklch(0% 0 0);
+	--main-foreground: oklch(0% 0 0);
+	--main: var(--primary-main);
+	--border: oklch(0% 0 0);
+	--ring: oklch(0% 0 0);
+	--overlay: oklch(0% 0 0 / 0.8);
+
+	/* Neobrutalism specific */
+	--neo-shadow-color: var(--border);
+	--neo-shadow-size: 5px;
+	--neo-border-size: 2px;
+	--neo-shadow-x: 4px;
+	--neo-shadow-y: 4px;
+	--neo-transition-duration: 0.2s;
+	--shadow: var(--neo-shadow-x) var(--neo-shadow-y) 0px 0px var(--neo-shadow-color);
+
+	/* Component colors (from shadcn) */
+	--card: var(--secondary-background);
+	--card-foreground: var(--foreground);
+	--popover: var(--background);
+	--popover-foreground: var(--foreground);
+	--primary: var(--primary-dark);
+	--primary-foreground: var(--main-foreground);
+	--secondary: var(--secondary-dark);
+	--secondary-foreground: var(--foreground);
+	--tertiary: var(--tertiary-dark);
+	--tertiary-foreground: var(--foreground);
+	--muted: oklch(95% 0.01 255);
+	--muted-foreground: oklch(60% 0 0);
+	--accent: oklch(95% 0.02 255);
+	--accent-foreground: var(--foreground);
+	--destructive: var(--error);
+	--destructive-foreground: var(--error-foreground);
+	--input: var(--border);
+	--radius: 0.5rem;
+
+	/* Font variables */
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+
+	/* Additional font options */
+	--font-heading: var(--font-lexend-mega);
+	--font-alt-sans: var(--font-public-sans);
+	--font-display: var(--font-archivo);
+
+	/* Font variables */
+	--font-weight-base: 400;
+	--font-weight-heading: 600;
 }
 
-@layer base {
-	* {
-		@apply border-0;
-	}
+.dark {
+	--background: var(--primary-dark);
+	--secondary-background: oklch(23.93% 0 0);
+	--foreground: oklch(92.49% 0 0);
+	--main-foreground: oklch(0% 0 0);
+	--main: var(--primary-main);
+	--border: oklch(0% 0 0);
+	--ring: oklch(100% 0 0);
+	--neo-shadow-color: var(--border);
+	--neo-shadow-y: 4px;
+	--shadow: var(--neo-shadow-x) var(--neo-shadow-y) 0px 0px var(--neo-shadow-color);
+
+	/* Component colors (from shadcn) */
+	--card: var(--secondary-background);
+	--card-foreground: var(--foreground);
+	--popover: var(--background);
+	--popover-foreground: var(--foreground);
+	--primary: var(--primary-darker);
+	--primary-foreground: var(--main-foreground);
+	--secondary: var(--secondary-darker);
+	--secondary-foreground: var(--foreground);
+	--tertiary: var(--tertiary-darker);
+	--tertiary-foreground: var(--foreground);
+	--muted: oklch(30% 0.01 270);
+	--muted-foreground: oklch(70% 0 0);
+	--accent: oklch(30% 0.03 270);
+	--accent-foreground: var(--foreground);
+	--destructive: var(--error);
+	--destructive-foreground: var(--error-foreground);
+	--input: var(--border);
+}
+
+@theme inline {
+	--color-main: var(--main);
+	--color-background: var(--background);
+	--color-secondary-background: var(--secondary-background);
+	--color-foreground: var(--foreground);
+	--color-main-foreground: var(--main-foreground);
+	--color-border: var(--border);
+	--color-overlay: var(--overlay);
+	--color-ring: var(--ring);
+
+	/* Add specific skill level colors for easier access */
+	--color-junior: var(--junior-color);
+	--color-junior-dark: var(--junior-dark);
+	--color-junior-darker: var(--junior-darker);
+
+	--color-mid: var(--mid-color);
+	--color-mid-dark: var(--mid-dark);
+	--color-mid-darker: var(--mid-darker);
+
+	--color-senior: var(--senior-color);
+	--color-senior-dark: var(--senior-dark);
+	--color-senior-darker: var(--senior-darker);
+
+	/* System colors */
+	--color-success: var(--success);
+	--color-success-foreground: var(--success-foreground);
+	--color-warning: var(--warning);
+	--color-warning-foreground: var(--warning-foreground);
+	--color-error: var(--error);
+	--color-error-foreground: var(--error-foreground);
+	--color-info: var(--info);
+	--color-info-foreground: var(--info-foreground);
+
+	--spacing-boxShadowX: var(--neo-shadow-x);
+	--spacing-boxShadowY: var(--neo-shadow-y);
+	--spacing-reverseBoxShadowX: calc(var(--neo-shadow-x) * -1);
+	--spacing-reverseBoxShadowY: calc(var(--neo-shadow-y) * -1);
+	--radius-base: 5px;
+	--shadow-shadow: var(--shadow);
+	--font-weight-base: 400;
+	--font-weight-heading: 600;
+}
+
+body {
+	min-height: 100dvh;
+	background-color: var(--background);
+	color: var(--foreground);
+}
+
+/* Custom scrollbar styling */
+body {
+	--sb-track-color: #ffffff;
+	--sb-thumb-color: #000000;
+}
+
+html.dark body,
+html.dark .scrollbar {
+	--sb-track-color: #1f1f1f;
+	--sb-thumb-color: #e6e6e6;
+}
+
+body::-webkit-scrollbar {
+	width: 20px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--sb-track-color);
+	border-left: 4px solid #000;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: var(--sb-thumb-color);
+}
+
+body::-webkit-scrollbar-track {
+	border-left: 4px solid #000;
+}
+
+html.dark body::-webkit-scrollbar-thumb {
+	border-left: 4px solid #000;
+}
+
+@supports not selector(::-webkit-scrollbar) {
 	body {
-		@apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+		scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 	}
 }
 
 /* Neobrutalism Shared Styles */
 @layer components {
 	.neo-brutalism {
-		@apply border-[length:var(--neo-border-size)] border-[hsl(var(--neo-shadow-color))] bg-[hsl(var(--background))] 
-           shadow-[var(--neo-shadow-x)_var(--neo-shadow-y)_0_0_hsl(var(--neo-shadow-color))]
-           transition-all duration-[var(--neo-transition-duration)];
+		border-width: var(--neo-border-size);
+		border-color: var(--neo-shadow-color);
+		background-color: var(--background);
+		box-shadow: var(--shadow);
+		transition: all var(--neo-transition-duration);
 	}
 
 	.neo-brutalism-hover:hover {
-		@apply translate-x-[2.5px] translate-y-[2.5px] shadow-[calc(var(--neo-shadow-x)_-_2.5px)_calc(var(--neo-shadow-y)_-_2.5px)_0_0_hsl(var(--neo-shadow-color))];
+		transform: translate(2.5px, 2.5px);
+		box-shadow: calc(var(--neo-shadow-x) - 2.5px) calc(var(--neo-shadow-y) - 2.5px) 0 0
+			var(--neo-shadow-color);
 	}
 
 	.neo-brutalism-active:active {
-		@apply translate-x-[var(--neo-shadow-x)] translate-y-[var(--neo-shadow-y)] shadow-none;
+		transform: translate(var(--neo-shadow-x), var(--neo-shadow-y));
+		box-shadow: none;
 	}
 }

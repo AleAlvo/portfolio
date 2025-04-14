@@ -5,19 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-	"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 neo-brutalism neo-brutalism-hover neo-brutalism-active",
+	"inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-black uppercase transition-all disabled:pointer-events-none disabled:opacity-50 neo-brutalism neo-brutalism-hover neo-brutalism-active rounded-md font-heading",
 	{
 		variants: {
 			variant: {
-				default:
-					"bg-white text-[hsl(var(--primary-foreground))] border-[hsl(var(--neo-shadow-color))]",
-				destructive:
-					"bg-[hsl(var(--destructive))] text-[hsl(var(--destructive-foreground))] border-[hsl(var(--neo-shadow-color))]",
-				outline: "bg-[hsl(var(--background))] text-[hsl(var(--foreground))]",
-				secondary: "bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))]",
-				ghost:
-					"hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))] shadow-none border-none",
-				link: "text-[hsl(var(--primary))] underline-offset-4 hover:underline shadow-none border-none",
+				default: "bg-junior-dark border-black text-black",
+				secondary: "bg-mid-dark border-black text-black",
+				tertiary: "bg-senior-dark border-black text-black",
+				destructive: "bg-error border-black text-black",
+				ghost: "bg-white/30 text-foreground border-none",
+				info: "bg-info border-black text-black",
+				success: "bg-success border-black text-black",
 			},
 			size: {
 				default: "h-10 px-5 py-2",

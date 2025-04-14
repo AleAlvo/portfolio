@@ -17,6 +17,13 @@ const config: Config = {
 			},
 		},
 		extend: {
+			fontFamily: {
+				sans: ["var(--font-geist-sans)"],
+				mono: ["var(--font-geist-mono)"],
+				heading: ["var(--font-lexend-mega)"],
+				"alt-sans": ["var(--font-public-sans)"],
+				display: ["var(--font-archivo)"],
+			},
 			colors: {
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
@@ -26,10 +33,20 @@ const config: Config = {
 				primary: {
 					DEFAULT: "hsl(var(--primary) / <alpha-value>)",
 					foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
+					dark: "hsl(var(--primary-dark) / <alpha-value>)",
+					darker: "hsl(var(--primary-darker) / <alpha-value>)",
 				},
 				secondary: {
 					DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
 					foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
+					dark: "hsl(var(--secondary-dark) / <alpha-value>)",
+					darker: "hsl(var(--secondary-darker) / <alpha-value>)",
+				},
+				tertiary: {
+					DEFAULT: "hsl(var(--tertiary) / <alpha-value>)",
+					foreground: "hsl(var(--tertiary-foreground) / <alpha-value>)",
+					dark: "hsl(var(--tertiary-dark) / <alpha-value>)",
+					darker: "hsl(var(--tertiary-darker) / <alpha-value>)",
 				},
 				destructive: {
 					DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
@@ -50,6 +67,39 @@ const config: Config = {
 				card: {
 					DEFAULT: "hsl(var(--card) / <alpha-value>)",
 					foreground: "hsl(var(--card-foreground) / <alpha-value>)",
+				},
+				// Skill level specific colors
+				junior: {
+					DEFAULT: "hsl(var(--junior-color) / <alpha-value>)",
+					dark: "hsl(var(--junior-dark) / <alpha-value>)",
+					darker: "hsl(var(--junior-darker) / <alpha-value>)",
+				},
+				mid: {
+					DEFAULT: "hsl(var(--mid-color) / <alpha-value>)",
+					dark: "hsl(var(--mid-dark) / <alpha-value>)",
+					darker: "hsl(var(--mid-darker) / <alpha-value>)",
+				},
+				senior: {
+					DEFAULT: "hsl(var(--senior-color) / <alpha-value>)",
+					dark: "hsl(var(--senior-dark) / <alpha-value>)",
+					darker: "hsl(var(--senior-darker) / <alpha-value>)",
+				},
+				// System status colors
+				success: {
+					DEFAULT: "hsl(var(--success) / <alpha-value>)",
+					foreground: "hsl(var(--success-foreground) / <alpha-value>)",
+				},
+				warning: {
+					DEFAULT: "hsl(var(--warning) / <alpha-value>)",
+					foreground: "hsl(var(--warning-foreground) / <alpha-value>)",
+				},
+				error: {
+					DEFAULT: "hsl(var(--error) / <alpha-value>)",
+					foreground: "hsl(var(--error-foreground) / <alpha-value>)",
+				},
+				info: {
+					DEFAULT: "hsl(var(--info) / <alpha-value>)",
+					foreground: "hsl(var(--info-foreground) / <alpha-value>)",
 				},
 			},
 			borderRadius: {
