@@ -6,15 +6,17 @@
 :root {
 	/* Main color schemes - based on provided palette */
 
-	/* Primary - Teal (#A7DBD8 as main) */
-	--primary-main: oklch(83.12% 0.08 196.66); /* #A7DBD8 */
-	--primary-dark: oklch(67.25% 0.08 196.66); /* Darker teal */
-	--primary-darker: oklch(51.38% 0.08 196.66); /* Darkest teal */
+	/* Primary - Yellow (#FFDB58 as main) - Was Secondary */
+	--primary-main: oklch(
+		94% 0.15 96.42
+	); /* Middle ground yellow - between pastel and previous */
+	--primary-dark: oklch(87.03% 0.19 96.42); /* #FFDB58 - Previous primary-main */
+	--primary-darker: oklch(71.16% 0.19 96.42); /* Previous primary-dark */
 
-	/* Secondary - Yellow (#FFDB58 as main) */
-	--secondary-main: oklch(87.03% 0.19 96.42); /* #FFDB58 */
-	--secondary-dark: oklch(71.16% 0.19 96.42); /* Darker yellow */
-	--secondary-darker: oklch(55.29% 0.19 96.42); /* Darkest yellow */
+	/* Secondary - Teal (#A7DBD8 as main) - Was Primary */
+	--secondary-main: oklch(83.12% 0.08 196.66); /* #A7DBD8 */
+	--secondary-dark: oklch(67.25% 0.08 196.66); /* Darker teal */
+	--secondary-darker: oklch(51.38% 0.08 196.66); /* Darkest teal */
 
 	/* Tertiary - Salmon (#FFA07A as main) */
 	--tertiary-main: oklch(76.11% 0.15 45.43); /* #FFA07A */
@@ -22,13 +24,13 @@
 	--tertiary-darker: oklch(44.37% 0.15 45.43); /* Darkest salmon */
 
 	/* Skill level mappings */
-	--junior-color: var(--primary-main);
-	--junior-dark: var(--primary-dark);
-	--junior-darker: var(--primary-darker);
+	--junior-color: var(--secondary-main); /* Updated to be the teal color */
+	--junior-dark: var(--secondary-dark);
+	--junior-darker: var(--secondary-darker);
 
-	--mid-color: var(--secondary-main);
-	--mid-dark: var(--secondary-dark);
-	--mid-darker: var(--secondary-darker);
+	--mid-color: var(--primary-main); /* Updated to be the yellow color */
+	--mid-dark: var(--primary-dark);
+	--mid-darker: var(--primary-darker);
 
 	--senior-color: var(--tertiary-main);
 	--senior-dark: var(--tertiary-dark);
@@ -37,7 +39,7 @@
 	/* System colors */
 	--success: oklch(76.34% 0.18 142.52); /* Green */
 	--success-foreground: oklch(100% 0 0);
-	--warning: oklch(87.03% 0.19 96.42); /* Same as secondary-main (yellow) */
+	--warning: oklch(87.03% 0.19 96.42); /* Original warning color (same as primary-dark) */
 	--warning-foreground: oklch(0% 0 0);
 	--error: oklch(65.71% 0.199 16.47); /* #FF6B6B */
 	--error-foreground: oklch(100% 0 0);

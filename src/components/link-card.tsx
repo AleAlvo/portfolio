@@ -18,7 +18,9 @@ export function LinkCard({
 	isExternal = false,
 }: LinkCardProps) {
 	const CardComponent = (
-		<div className="border-border shadow-shadow text-foreground rounded-md bg-main hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none border-2 p-5 transition-all cursor-pointer h-full flex flex-col">
+		<div
+			className="border-border shadow-shadow text-foreground rounded-md hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none border-2 p-5 transition-all cursor-pointer h-full flex flex-col"
+			style={{ backgroundColor: "var(--primary-dark)" }}>
 			<div className="flex items-start justify-between">
 				<Icon className="h-8 w-8 sm:h-10 sm:w-10" />
 			</div>
