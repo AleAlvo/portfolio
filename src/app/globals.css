@@ -238,3 +238,8 @@ html.dark body::-webkit-scrollbar-thumb {
 		box-shadow: none;
 	}
 }
+
+/* Make sure font-black properly applies 900 weight */
+.font-black {
+	font-weight: 900 !important;
+}

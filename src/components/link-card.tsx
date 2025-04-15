@@ -24,7 +24,7 @@ export function LinkCard({
 			<div className="mt-3">
 				<div className="h-[2.25rem] sm:h-[2.5rem] flex items-end">
 					<h3
-						className={`font-heading font-bold uppercase text-[length:var(--responsive-font-size,1.125rem)] sm:text-[length:var(--responsive-font-size,1.25rem)] leading-tight`}
+						className={`font-black uppercase text-[length:var(--responsive-font-size,1.125rem)] sm:text-[length:var(--responsive-font-size,1.25rem)] leading-tight`}
 						style={
 							{
 								"--responsive-font-size": title.length > 15 ? "0.8rem" : "1.125rem",

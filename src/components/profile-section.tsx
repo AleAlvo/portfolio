@@ -35,8 +35,8 @@ export function ProfileSection() {
 			</div>
 
 			<div className="mt-4">
-				<h2 className="font-heading text-3xl font-black sm:text-[44px]">{name}</h2>
-				<h3 className="font-heading text-xl font-bold mt-2">{title}</h3>
+				<h2 className="font-bold text-3xl sm:text-[44px]">{name}</h2>
+				<h3 className="text-xl font-heading mt-2">{title}</h3>
 
 				<div className="mt-6">
 					<Accordion type="single" collapsible className="w-full">

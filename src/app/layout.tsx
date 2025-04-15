@@ -25,6 +25,7 @@ const geistMono = Geist_Mono({
 const lexendMega = Lexend_Mega({
 	variable: "--font-lexend-mega",
 	subsets: ["latin"],
+	weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const publicSans = Public_Sans({

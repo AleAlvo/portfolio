@@ -25,11 +25,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
 		return (
 			<Component
 				ref={ref}
-				className={cn(
-					"font-heading font-semibold", // Use the custom font variable
-					sizeClasses[size],
-					className,
-				)}
+				className={cn("font-heading font-semibold", sizeClasses[size], className)}
 				{...props}>
 				{children}
 			</Component>
