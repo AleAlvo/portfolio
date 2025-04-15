@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import { cn } from "@/lib/utils";
 
@@ -36,12 +37,14 @@ function AccordionTrigger({
 			<AccordionPrimitive.Trigger
 				data-slot="accordion-trigger"
 				className={cn(
-					"flex flex-1 items-center justify-between text-left text-base text-main-foreground border-border focus-visible:ring-[3px] bg-white p-4 font-heading transition-all [&[data-state=open]>svg]:rotate-180 data-[state=open]:rounded-b-none data-[state=open]:border-b-2 disabled:pointer-events-none disabled:opacity-50",
+					"flex flex-1 items-center justify-between text-left text-base text-main-foreground border-border focus-visible:ring-[3px] bg-white p-4 font-heading transition-all [&[data-state=open]>div]:rotate-180 data-[state=open]:rounded-b-none data-[state=open]:border-b-2 disabled:pointer-events-none disabled:opacity-50",
 					className,
 				)}
 				{...props}>
 				{children}
-				<ChevronDown className="pointer-events-none size-5 shrink-0 transition-transform duration-200" />
+				<div className="pointer-events-none size-5 shrink-0 transition-transform duration-200">
+					<FontAwesomeIcon icon={faChevronDown} />
+				</div>
 			</AccordionPrimitive.Trigger>
 		</AccordionPrimitive.Header>
 	);

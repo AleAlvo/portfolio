@@ -1,12 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
 
 interface LinkCardProps {
 	title: string;
 	description?: string;
 	href: string;
-	icon: LucideIcon;
+	icon: React.ReactNode;
 	isExternal?: boolean;
 }
 
@@ -14,16 +13,14 @@ export function LinkCard({
 	title,
 	description,
 	href,
-	icon: Icon,
+	icon,
 	isExternal = false,
 }: LinkCardProps) {
 	const CardComponent = (
 		<div
 			className="border-border shadow-shadow text-foreground rounded-md hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none border-2 p-5 transition-all cursor-pointer h-full flex flex-col"
 			style={{ backgroundColor: "var(--primary-dark)" }}>
-			<div className="flex items-start justify-between">
-				<Icon className="h-8 w-8 sm:h-10 sm:w-10" />
-			</div>
+			<div className="flex items-start justify-between">{icon}</div>
 			<div className="mt-3">
 				<div className="h-[2.25rem] sm:h-[2.5rem] flex items-end">
 					<h3

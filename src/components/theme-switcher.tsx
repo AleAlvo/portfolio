@@ -1,6 +1,7 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useTheme } from "next-themes";
 import * as React from "react";
 import { IconButton } from "./ui/icon-button";
@@ -14,8 +15,11 @@ export function ThemeSwitcher() {
 			onClick={() => setTheme(theme === "light" ? "dark" : "light")}
 			icon={
 				<>
-					<Sun className="stroke-foreground hidden h-6 w-6 dark:inline" />
-					<Moon className="stroke-foreground inline h-6 w-6 dark:hidden" />
+					{theme === "dark" ? (
+						<FontAwesomeIcon icon={faSun} size="2x" />
+					) : (
+						<FontAwesomeIcon icon={faMoon} size="2x" />
+					)}
 				</>
 			}
 		/>

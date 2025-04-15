@@ -1,5 +1,6 @@
 import { ThemeSwitcher } from "./theme-switcher";
-import { GithubIcon } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
 	Accordion,
 	AccordionContent,
@@ -28,7 +29,7 @@ export function ProfileSection() {
 					<IconButton
 						href="https://github.com/AleAlvo"
 						ariaLabel="GitHub profile"
-						icon={<GithubIcon className="stroke-foreground h-6 w-6" />}
+						icon={<FontAwesomeIcon icon={faGithub} size="2x" />}
 					/>
 				</div>
 			</div>

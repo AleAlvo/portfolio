@@ -1,15 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	Cpu,
-	Database,
-	Filter,
-	Globe,
-	Layout,
-	Palette,
-	Shield,
-	Sparkles,
-	Zap,
-} from "lucide-react";
+	faDatabase,
+	faFilter,
+	faBolt,
+	faTableCellsLarge,
+	faGlobe,
+	faStar,
+	faShield,
+	faMicrochip,
+	faPalette,
+} from "@fortawesome/free-solid-svg-icons";
 import { LinkCard } from "./link-card";
 
 const showcaseItems = [
@@ -17,63 +18,81 @@ const showcaseItems = [
 		title: "Data Fetching",
 		description: "Server components & React Query",
 		href: "/projects",
-		icon: Database,
+		icon: (
+			<FontAwesomeIcon icon={faDatabase} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
+		),
 		isExternal: false,
 	},
 	{
 		title: "Filtering",
 		description: "Client-side & server-side filtering techniques",
 		href: "/projects",
-		icon: Filter,
+		icon: (
+			<FontAwesomeIcon icon={faFilter} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
+		),
 		isExternal: false,
 	},
 	{
 		title: "Neobrutalism",
 		description: "Modern design with bold aesthetics",
 		href: "/",
-		icon: Palette,
+		icon: (
+			<FontAwesomeIcon icon={faPalette} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
+		),
 		isExternal: false,
 	},
 	{
 		title: "Performance",
 		description: "Optimized loading & rendering",
 		href: "/projects",
-		icon: Zap,
+		icon: <FontAwesomeIcon icon={faBolt} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />,
 		isExternal: false,
 	},
 	{
 		title: "Layouts",
 		description: "Responsive UI with App Router",
 		href: "/about",
-		icon: Layout,
+		icon: (
+			<FontAwesomeIcon
+				icon={faTableCellsLarge}
+				size="2x"
+				className="h-8 w-8 sm:h-10 sm:w-10"
+			/>
+		),
 		isExternal: false,
 	},
 	{
 		title: "Internationalization",
 		description: "Multi-language support",
 		href: "/about",
-		icon: Globe,
+		icon: (
+			<FontAwesomeIcon icon={faGlobe} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
+		),
 		isExternal: false,
 	},
 	{
 		title: "Animations",
 		description: "Smooth UI transitions & effects",
 		href: "/",
-		icon: Sparkles,
+		icon: <FontAwesomeIcon icon={faStar} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />,
 		isExternal: false,
 	},
 	{
 		title: "TypeScript",
 		description: "Type-safe development",
 		href: "/projects",
-		icon: Shield,
+		icon: (
+			<FontAwesomeIcon icon={faShield} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
+		),
 		isExternal: false,
 	},
 	{
 		title: "Edge Rendering",
 		description: "Next.js edge runtime optimization",
 		href: "/projects",
-		icon: Cpu,
+		icon: (
+			<FontAwesomeIcon icon={faMicrochip} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
+		),
 		isExternal: false,
 	},
 ];
