@@ -10,49 +10,42 @@
 	--primary-main: oklch(93.46% 0.0305 255.11); /* Light pastel blue */
 	--primary-dark: oklch(67.47% 0.1726 259.49); /* Darker blue, more saturated */
 	--primary-darker: oklch(40% 0.15 260); /* Much darker blue */
+	--primary: var(--primary-dark);
+	--primary-foreground: #ffffff;
 
 	/* Secondary - Yellow */
-	--secondary-main: oklch(94% 0.15 96.42); /* Pastel yellow */
+	--secondary-main: oklch(97% 0.12 96.42); /* Lighter pastel yellow */
 	--secondary-dark: oklch(87.03% 0.19 96.42); /* #FFDB58 - Previous primary-dark */
 	--secondary-darker: oklch(71.16% 0.19 96.42); /* Previous primary-darker */
+	--secondary: var(--secondary-dark);
+	--secondary-foreground: #000000;
 
 	/* Tertiary - Salmon (#FFA07A as main) */
 	--tertiary-main: oklch(76.11% 0.15 45.43); /* #FFA07A */
 	--tertiary-dark: oklch(60.24% 0.15 45.43); /* Darker salmon */
 	--tertiary-darker: oklch(44.37% 0.15 45.43); /* Darkest salmon */
-
-	/* Skill level mappings */
-	--junior-color: var(--primary-main); /* Updated to blue color */
-	--junior-dark: var(--primary-dark);
-	--junior-darker: var(--primary-darker);
-
-	--mid-color: var(--secondary-main); /* Updated to yellow color */
-	--mid-dark: var(--secondary-dark);
-	--mid-darker: var(--secondary-darker);
-
-	--senior-color: var(--tertiary-main);
-	--senior-dark: var(--tertiary-dark);
-	--senior-darker: var(--tertiary-darker);
+	--tertiary: var(--tertiary-dark);
+	--tertiary-foreground: #000000;
 
 	/* System colors */
 	--success: oklch(76.34% 0.18 142.52); /* Green */
-	--success-foreground: oklch(100% 0 0);
+	--success-foreground: #ffffff;
 	--warning: oklch(87.03% 0.19 96.42); /* Same as secondary-dark (yellow) */
-	--warning-foreground: oklch(0% 0 0);
+	--warning-foreground: #000000;
 	--error: oklch(65.71% 0.199 16.47); /* #FF6B6B */
-	--error-foreground: oklch(100% 0 0);
+	--error-foreground: #ffffff;
 	--info: oklch(67.47% 0.1726 259.49); /* Same as primary-dark (blue) */
-	--info-foreground: oklch(100% 0 0);
+	--info-foreground: #ffffff;
 
 	/* Core colors */
 	--background: var(--primary-main);
-	--secondary-background: oklch(100% 0 0);
-	--foreground: oklch(0% 0 0);
-	--main-foreground: oklch(0% 0 0);
+	--secondary-background: #ffffff;
+	--foreground: #000000;
+	--main-foreground: #000000;
 	--main: var(--primary-main);
-	--border: oklch(0% 0 0);
-	--ring: oklch(0% 0 0);
-	--overlay: oklch(0% 0 0 / 0.8);
+	--border: #000000;
+	--ring: #000000;
+	--overlay: rgba(0, 0, 0, 0.8);
 
 	/* Neobrutalism specific */
 	--neo-shadow-color: var(--border);
@@ -68,15 +61,9 @@
 	--card-foreground: var(--foreground);
 	--popover: var(--background);
 	--popover-foreground: var(--foreground);
-	--primary: var(--primary-dark);
-	--primary-foreground: oklch(100% 0 0); /* White text on darker blue */
-	--secondary: var(--secondary-dark);
-	--secondary-foreground: var(--foreground);
-	--tertiary: var(--tertiary-dark);
-	--tertiary-foreground: var(--foreground);
-	--muted: oklch(95% 0.01 255);
-	--muted-foreground: oklch(60% 0 0);
-	--accent: oklch(95% 0.02 255);
+	--muted: #f2f7fb;
+	--muted-foreground: #999999;
+	--accent: #ebf3f9;
 	--accent-foreground: var(--foreground);
 	--destructive: var(--error);
 	--destructive-foreground: var(--error-foreground);
@@ -95,16 +82,19 @@
 	/* Font variables */
 	--font-weight-base: 400;
 	--font-weight-heading: 600;
+
+	/* CSS variables approach for components that need to override background */
+	--component-bg: initial; /* Default empty value */
 }
 
 .dark {
 	--background: var(--primary-dark);
-	--secondary-background: oklch(23.93% 0 0);
-	--foreground: oklch(92.49% 0 0);
-	--main-foreground: oklch(0% 0 0);
+	--secondary-background: #3c3c3c;
+	--foreground: #ececec;
+	--main-foreground: #000000;
 	--main: var(--primary-main);
-	--border: oklch(0% 0 0);
-	--ring: oklch(100% 0 0);
+	--border: #000000;
+	--ring: #ffffff;
 	--neo-shadow-color: var(--border);
 	--neo-shadow-y: 4px;
 	--shadow: var(--neo-shadow-x) var(--neo-shadow-y) 0px 0px var(--neo-shadow-color);
@@ -115,14 +105,14 @@
 	--popover: var(--background);
 	--popover-foreground: var(--foreground);
 	--primary: var(--primary-darker);
-	--primary-foreground: oklch(100% 0 0); /* White text for darker blue */
+	--primary-foreground: #ffffff; /* White text for darker blue */
 	--secondary: var(--secondary-darker);
 	--secondary-foreground: var(--foreground);
 	--tertiary: var(--tertiary-darker);
 	--tertiary-foreground: var(--foreground);
-	--muted: oklch(30% 0.01 270);
-	--muted-foreground: oklch(70% 0 0);
-	--accent: oklch(30% 0.03 270);
+	--muted: #4c4c4c;
+	--muted-foreground: #b3b3b3;
+	--accent: #4d4d4d;
 	--accent-foreground: var(--foreground);
 	--destructive: var(--error);
 	--destructive-foreground: var(--error-foreground);
@@ -138,19 +128,6 @@
 	--color-border: var(--border);
 	--color-overlay: var(--overlay);
 	--color-ring: var(--ring);
-
-	/* Add specific skill level colors for easier access */
-	--color-junior: var(--junior-color);
-	--color-junior-dark: var(--junior-dark);
-	--color-junior-darker: var(--junior-darker);
-
-	--color-mid: var(--mid-color);
-	--color-mid-dark: var(--mid-dark);
-	--color-mid-darker: var(--mid-darker);
-
-	--color-senior: var(--senior-color);
-	--color-senior-dark: var(--senior-dark);
-	--color-senior-darker: var(--senior-darker);
 
 	/* System colors */
 	--color-success: var(--success);
@@ -219,12 +196,18 @@ html.dark body::-webkit-scrollbar-thumb {
 
 /* Neobrutalism Shared Styles */
 @layer components {
+	/* Full neo-brutalism with background */
 	.neo-brutalism {
 		border-width: var(--neo-border-size);
 		border-color: var(--neo-shadow-color);
-		background-color: var(--background);
+		background-color: var(--component-bg, transparent);
 		box-shadow: var(--shadow);
 		transition: all var(--neo-transition-duration);
+	}
+
+	/* Shadow utility for reuse */
+	.shadow-shadow {
+		box-shadow: var(--shadow);
 	}
 
 	.neo-brutalism-hover:hover {
@@ -242,4 +225,9 @@ html.dark body::-webkit-scrollbar-thumb {
 /* Make sure font-black properly applies 900 weight */
 .font-black {
 	font-weight: 900 !important;
+}
+
+/* CSS variables approach for components that need to override background */
+:root {
+	--component-bg: initial; /* Default empty value */
 }

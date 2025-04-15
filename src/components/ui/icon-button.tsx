@@ -17,8 +17,20 @@ export function IconButton({
 	external = true,
 	...props
 }: IconButtonProps) {
+	// Check if a custom background color is provided in className
+	const hasCustomBg =
+		className &&
+		(className.includes("bg-") ||
+			className.includes("background") ||
+			className.includes("--component-bg"));
+
+	// Generate class order to ensure background colors take precedence
 	const buttonClasses = cn(
-		"border-border bg-white neo-brutalism neo-brutalism-hover neo-brutalism-active h-12 w-12 border-2 p-0 rounded-md flex items-center justify-center",
+		// Base neo-brutalism styles with configurable background
+		"border-border border-2 h-12 w-12 p-0 rounded-md flex items-center justify-center neo-brutalism neo-brutalism-hover neo-brutalism-active",
+		// Only apply default background if no custom background is provided
+		!hasCustomBg && "bg-white",
+		// Custom classes come last for higher specificity
 		className,
 	);
 

@@ -9,6 +9,12 @@ import {
 } from "@/components/ui/accordion";
 import { Avatar } from "@/components/ui/avatar";
 import { IconButton } from "@/components/ui/icon-button";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function ProfileSection() {
 	const name = "Alexandre Álvaro";
@@ -25,12 +31,36 @@ export function ProfileSection() {
 					className="neo-brutalism"
 				/>
 				<div className="flex flex-row sm:flex-col gap-2 mt-4 sm:mt-0">
-					<ThemeSwitcher />
-					<IconButton
-						href="https://github.com/AleAlvo"
-						ariaLabel="GitHub profile"
-						icon={<FontAwesomeIcon icon={faGithub} size="2x" />}
-					/>
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<div>
+									<ThemeSwitcher />
+								</div>
+							</TooltipTrigger>
+							<TooltipContent side="right" sideOffset={8}>
+								<p>toggle dark mode</p>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
+
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<div>
+									<IconButton
+										href="https://github.com/AleAlvo"
+										ariaLabel="GitHub profile"
+										icon={<FontAwesomeIcon icon={faGithub} size="2x" />}
+										className="bg-white"
+									/>
+								</div>
+							</TooltipTrigger>
+							<TooltipContent side="right" sideOffset={8}>
+								<p>my Github</p>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
 				</div>
 			</div>
 

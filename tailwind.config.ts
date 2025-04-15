@@ -25,81 +25,68 @@ const config: Config = {
 				display: ["var(--font-archivo)"],
 			},
 			colors: {
-				border: "hsl(var(--border) / <alpha-value>)",
-				input: "hsl(var(--input) / <alpha-value>)",
-				ring: "hsl(var(--ring) / <alpha-value>)",
-				background: "hsl(var(--background) / <alpha-value>)",
-				foreground: "hsl(var(--foreground) / <alpha-value>)",
+				border: "var(--border)",
+				input: "var(--input)",
+				ring: "var(--ring)",
+				background: "var(--background)",
+				foreground: "var(--foreground)",
 				primary: {
-					DEFAULT: "hsl(var(--primary) / <alpha-value>)",
-					foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
-					dark: "hsl(var(--primary-dark) / <alpha-value>)",
-					darker: "hsl(var(--primary-darker) / <alpha-value>)",
+					DEFAULT: "var(--primary)",
+					foreground: "var(--primary-foreground)",
+					main: "var(--primary-main)",
+					dark: "var(--primary-dark)",
+					darker: "var(--primary-darker)",
 				},
 				secondary: {
-					DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
-					foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
-					dark: "hsl(var(--secondary-dark) / <alpha-value>)",
-					darker: "hsl(var(--secondary-darker) / <alpha-value>)",
+					DEFAULT: "var(--secondary)",
+					foreground: "var(--secondary-foreground)",
+					main: "var(--secondary-main)",
+					dark: "var(--secondary-dark)",
+					darker: "var(--secondary-darker)",
 				},
 				tertiary: {
-					DEFAULT: "hsl(var(--tertiary) / <alpha-value>)",
-					foreground: "hsl(var(--tertiary-foreground) / <alpha-value>)",
-					dark: "hsl(var(--tertiary-dark) / <alpha-value>)",
-					darker: "hsl(var(--tertiary-darker) / <alpha-value>)",
+					DEFAULT: "var(--tertiary)",
+					foreground: "var(--tertiary-foreground)",
+					main: "var(--tertiary-main)",
+					dark: "var(--tertiary-dark)",
+					darker: "var(--tertiary-darker)",
 				},
 				destructive: {
-					DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
-					foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
+					DEFAULT: "var(--destructive)",
+					foreground: "var(--destructive-foreground)",
 				},
 				muted: {
-					DEFAULT: "hsl(var(--muted) / <alpha-value>)",
-					foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
+					DEFAULT: "var(--muted)",
+					foreground: "var(--muted-foreground)",
 				},
 				accent: {
-					DEFAULT: "hsl(var(--accent) / <alpha-value>)",
-					foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
+					DEFAULT: "var(--accent)",
+					foreground: "var(--accent-foreground)",
 				},
 				popover: {
-					DEFAULT: "hsl(var(--popover) / <alpha-value>)",
-					foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
+					DEFAULT: "var(--popover)",
+					foreground: "var(--popover-foreground)",
 				},
 				card: {
-					DEFAULT: "hsl(var(--card) / <alpha-value>)",
-					foreground: "hsl(var(--card-foreground) / <alpha-value>)",
-				},
-				// Skill level specific colors
-				junior: {
-					DEFAULT: "hsl(var(--junior-color) / <alpha-value>)",
-					dark: "hsl(var(--junior-dark) / <alpha-value>)",
-					darker: "hsl(var(--junior-darker) / <alpha-value>)",
-				},
-				mid: {
-					DEFAULT: "hsl(var(--mid-color) / <alpha-value>)",
-					dark: "hsl(var(--mid-dark) / <alpha-value>)",
-					darker: "hsl(var(--mid-darker) / <alpha-value>)",
-				},
-				senior: {
-					DEFAULT: "hsl(var(--senior-color) / <alpha-value>)",
-					dark: "hsl(var(--senior-dark) / <alpha-value>)",
-					darker: "hsl(var(--senior-darker) / <alpha-value>)",
+					DEFAULT: "var(--card)",
+					foreground: "var(--card-foreground)",
 				},
 				// System status colors
 				success: {
-					DEFAULT: "hsl(var(--success) / <alpha-value>)",
-					foreground: "hsl(var(--success-foreground) / <alpha-value>)",
+					DEFAULT: "var(--success)",
+					foreground: "var(--success-foreground)",
 				},
 				warning: {
-					DEFAULT: "hsl(var(--warning) / <alpha-value>)",
-					foreground: "hsl(var(--warning-foreground) / <alpha-value>)",
+					DEFAULT: "var(--warning)",
+					foreground: "var(--warning-foreground)",
 				},
 				error: {
-					DEFAULT: "hsl(var(--error) / <alpha-value>)",
-					foreground: "hsl(var(--error-foreground) / <alpha-value>)",
+					DEFAULT: "var(--error)",
+					foreground: "var(--error-foreground)",
 				},
 				info: {
-					DEFAULT: "hsl(var(--info) / <alpha-value>)",
-					foreground: "hsl(var(--info-foreground) / <alpha-value>)",
+					DEFAULT: "var(--info)",
+					foreground: "var(--info-foreground)",
 				},
 			},
 			borderRadius: {
@@ -109,7 +96,7 @@ const config: Config = {
 			},
 			boxShadow: {
 				neobrutalism:
-					"var(--neo-shadow-x) var(--neo-shadow-y) 0 0 hsl(var(--neo-shadow-color))",
+					"var(--neo-shadow-x) var(--neo-shadow-y) 0 0 var(--neo-shadow-color)",
 			},
 			keyframes: {
 				"accordion-down": {

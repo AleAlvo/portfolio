@@ -9,9 +9,9 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "bg-junior-dark border-black text-black",
-				secondary: "bg-mid-dark border-black text-black",
-				tertiary: "bg-senior-dark border-black text-black",
+				default: "bg-primary-dark border-black text-black",
+				secondary: "bg-secondary-dark border-black text-black",
+				tertiary: "bg-tertiary-dark border-black text-black",
 				destructive: "bg-error border-black text-black",
 				ghost: "bg-white/30 text-foreground border-none",
 				info: "bg-info border-black text-black",

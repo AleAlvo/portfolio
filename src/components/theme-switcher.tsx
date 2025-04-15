@@ -13,6 +13,7 @@ export function ThemeSwitcher() {
 		<IconButton
 			ariaLabel="Toggle theme"
 			onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+			className="[--component-bg:var(--secondary-main)]"
 			icon={
 				<>
 					{theme === "dark" ? (
