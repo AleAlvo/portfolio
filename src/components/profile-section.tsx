@@ -1,55 +1,83 @@
-import Image from "next/image";
 import { ThemeSwitcher } from "./theme-switcher";
 import { GithubIcon } from "lucide-react";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Avatar } from "@/components/ui/avatar";
+import { IconButton } from "@/components/ui/icon-button";
 
-interface ProfileSectionProps {
-	name: string;
-	username?: string;
-	title: string;
-	bio: React.ReactNode;
-	avatarUrl: string;
-}
+export function ProfileSection() {
+	const name = "Alexandre Álvaro";
+	const title = "full stack Developer // front end specialist";
+	const avatarUrl = "/images/me.jpg";
 
-export function ProfileSection({
-	name,
-	username,
-	title,
-	bio,
-	avatarUrl,
-}: ProfileSectionProps) {
 	return (
 		<div className="mb-12 w-full xl:w-[50%] xl:sticky xl:top-16 xl:self-start xl:pr-8">
-			<div className="border-border neo-brutalism relative h-36 w-36 overflow-hidden rounded-full border-2 xl:h-[184px] xl:w-[184px]">
-				<Image
-					className="h-full w-full object-cover"
-					style={{ objectPosition: "center 35%" }}
+			<div className="flex flex-col sm:flex-row items-start justify-between mb-8">
+				<Avatar
 					src={avatarUrl}
 					alt={`${name} profile picture`}
-					width={184}
-					height={184}
-					priority
+					size={250}
+					className="neo-brutalism"
 				/>
-			</div>
-
-			<div className="mt-8">
-				<h2 className="font-heading text-3xl font-black sm:text-[44px]">{name}</h2>
-				{username && (
-					<a
+				<div className="flex flex-row sm:flex-col gap-2 mt-4 sm:mt-0">
+					<ThemeSwitcher />
+					<IconButton
 						href="https://github.com/AleAlvo"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="flex items-center mt-1 gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
-						<GithubIcon className="h-4 w-4" />
-						<span className="font-heading text-sm">{username}</span>
-					</a>
-				)}
-				<h3 className="font-heading text-xl font-bold mt-3">{title}</h3>
-				<div className="font-heading mt-6 text-sm space-y-4 sm:text-base">
-					{typeof bio === "string" ? <p>{bio}</p> : bio}
+						ariaLabel="GitHub profile"
+						icon={<GithubIcon className="stroke-foreground h-6 w-6" />}
+					/>
 				</div>
 			</div>
 
-			<ThemeSwitcher />
+			<div className="mt-4">
+				<h2 className="font-heading text-3xl font-black sm:text-[44px]">{name}</h2>
+				<h3 className="font-heading text-xl font-bold mt-2">{title}</h3>
+
+				<div className="mt-6">
+					<Accordion type="single" collapsible className="w-full">
+						<AccordionItem value="about-website" className="mb-3">
+							<AccordionTrigger>
+								This website is not your typical portfolio
+							</AccordionTrigger>
+							<AccordionContent>
+								Instead of showcasing entire past projects, it&apos;s a playground of
+								focused demos highlighting how I tackle core frontend challenges — from
+								data fetching with React Query, to performance optimization, to UI
+								filtering and state management techniques. Think of it as a peek into my
+								developer toolbox.
+							</AccordionContent>
+						</AccordionItem>
+
+						<AccordionItem value="about-me" className="mb-3">
+							<AccordionTrigger>
+								I am a frontend-specialized full stack developer
+							</AccordionTrigger>
+							<AccordionContent>
+								I&apos;m Alexandre Álvaro, a frontend-focused full stack developer with a
+								background as rich and versatile as my skill set — architecture, aviation,
+								and now software development. I&apos;ve worked on dashboards, asset
+								tracking tools, and zone creators for factory systems, always with an eye
+								on clean code, solid UX, and scalable architecture. I mostly work with
+								React, TypeScript, Redux, Chakra UI, Node.js, and MongoDB, often within
+								Agile teams.
+							</AccordionContent>
+						</AccordionItem>
+
+						<AccordionItem value="about-focus">
+							<AccordionTrigger>My focus?</AccordionTrigger>
+							<AccordionContent>
+								Becoming a master of the frontend craft — from elegant component design to
+								advanced data handling. I&apos;m all about building reliable,
+								user-friendly interfaces and constantly sharpening my edge as a dev.
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
+				</div>
+			</div>
 		</div>
 	);
 }

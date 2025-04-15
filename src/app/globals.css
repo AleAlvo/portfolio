@@ -6,7 +6,7 @@
 :root {
 	/* Main color schemes - based on provided palette */
 
-	/* Primary - Pastel Blue (similar to bento) */
+	/* Primary - Pastel Blue */
 	--primary-main: oklch(93.46% 0.0305 255.11); /* Light pastel blue */
 	--primary-dark: oklch(67.47% 0.1726 259.49); /* Darker blue, more saturated */
 	--primary-darker: oklch(40% 0.15 260); /* Much darker blue */
