@@ -17,7 +17,7 @@ const showcaseItems = [
 	{
 		title: "Data Fetching",
 		description: "Server components & React Query",
-		href: "/projects",
+		href: "/showcase/data-fetching",
 		icon: (
 			<FontAwesomeIcon icon={faDatabase} size="2x" className="h-8 w-8 sm:h-10 sm:w-10" />
 		),
