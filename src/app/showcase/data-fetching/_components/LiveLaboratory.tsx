@@ -12,13 +12,16 @@ export function LiveLaboratory() {
 
 	// Render the appropriate demo component based on selectedMethod
 	return (
-		<div className="w-full h-full neo-brutalism p-6 theme-white rounded-lg">
-			<h2 className="text-xl font-heading mb-4">Live Laboratory</h2>
-			<p className="mb-6 text-sm">
-				Demonstrating the{" "}
-				<span className="font-semibold">{getDemoTitle(selectedMethod)}</span> approach to
-				data fetching
-			</p>
+		<div className="w-full h-full neo-brutalism p-6 theme-white rounded-lg border-2 border-black">
+			<div className="mb-4 border-b border-border pb-3">
+				<h2 className="text-2xl font-heading">Live Laboratory</h2>
+				<p className="text-sm text-muted-foreground">
+					Demonstrating{" "}
+					<span className="font-semibold text-foreground">
+						{getDemoTitle(selectedMethod)}
+					</span>
+				</p>
+			</div>
 
 			<div className="mt-4">
 				{selectedMethod === "react-query" && <ReactQueryDemo />}

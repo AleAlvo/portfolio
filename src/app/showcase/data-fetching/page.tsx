@@ -100,8 +100,8 @@ function PerformancePanelSkeleton() {
 	);
 }
 
-// Component to fetch and set up the data provider
-async function DataFetchingContent() {
+// Component to fetch and set up the data provider with header
+async function DataFetchingContentWithHeader() {
 	// This will suspend while data is loading on the server
 	const launches = await fetchSpaceXLaunches();
 
@@ -111,6 +111,19 @@ async function DataFetchingContent() {
 				<div className="grid grid-cols-1 lg:grid-cols-10 gap-8">
 					{/* Left column for explanation and performance metrics */}
 					<section className="concept-canvas flex flex-col space-y-6 lg:col-span-4">
+						<div>
+							<h1 className="text-3xl font-bold">Data Fetching Showcase</h1>
+							<SimpleBreadcrumb
+								crumbs={[
+									{ label: "Home", href: "/" },
+									{ label: "Showcase", href: "/showcase" },
+									{ label: "Data Fetching" },
+								]}
+								badge="Page - server component"
+								className="mb-6"
+							/>
+						</div>
+
 						<div className="prose max-w-none">
 							<h2 className="text-2xl font-heading mb-4">
 								Understanding Data Fetching in React
@@ -161,22 +174,16 @@ export default function DataFetchingShowcase() {
 	return (
 		<div className="flex flex-col w-full min-h-screen">
 			<div className="container mx-auto px-4 py-8">
-				<h1 className="text-3xl font-bold">Data Fetching Showcase</h1>
-				<SimpleBreadcrumb
-					crumbs={[
-						{ label: "Home", href: "/" },
-						{ label: "Showcase", href: "/showcase" },
-						{ label: "Data Fetching" },
-					]}
-					badge="Page - server component"
-					className="mb-6"
-				/>
-
 				{/* Suspense boundary for data fetching */}
 				<Suspense
 					fallback={
 						<div className="grid grid-cols-1 lg:grid-cols-10 gap-8 animate-pulse">
 							<div className="lg:col-span-4 space-y-4">
+								{/* Header and breadcrumb skeletons */}
+								<Skeleton className="h-10 w-3/4 mb-2" />
+								<Skeleton className="h-5 w-1/2 mb-6" />
+
+								{/* Content skeletons */}
 								<Skeleton className="h-8 w-3/4" />
 								<Skeleton className="h-4 w-full" />
 								<Skeleton className="h-4 w-full" />
@@ -194,7 +201,7 @@ export default function DataFetchingShowcase() {
 							</div>
 						</div>
 					}>
-					<DataFetchingContent />
+					<DataFetchingContentWithHeader />
 				</Suspense>
 			</div>
 		</div>
