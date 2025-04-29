@@ -48,5 +48,9 @@ export function LinkCard({
 		);
 	}
 
-	return <Link href={href}>{CardComponent}</Link>;
+	return (
+		<Link href={href} prefetch={true}>
+			{CardComponent}
+		</Link>
+	);
 }

@@ -7,6 +7,8 @@ import React, {
 	useCallback,
 	useMemo,
 	ReactNode,
+	useEffect,
+	use,
 } from "react";
 import { SpaceXLaunch } from "../page";
 
@@ -74,17 +76,20 @@ export function useDataFetching() {
 interface DataFetchingProviderProps {
 	children: ReactNode;
 	initialServerData?: SpaceXLaunch[] | null;
+	dataPromise?: Promise<SpaceXLaunch[]>;
 }
 
 export function DataFetchingProvider({
 	children,
 	initialServerData = null,
+	dataPromise,
 }: DataFetchingProviderProps) {
 	// Core state
 	const [selectedMethod, setSelectedMethod] = useState<FetchMethodType>("react-query");
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState<Error | null>(null);
 	const [clientData, setClientData] = useState<SpaceXLaunch[] | null>(null);
+	const [serverData, setServerData] = useState<SpaceXLaunch[] | null>(initialServerData);
 	const [fetchConfig, setFetchConfig] = useState<FetchConfig>(defaultFetchConfig);
 	const [performanceMetrics, setPerformanceMetrics] = useState<
 		Record<FetchMethodType, PerformanceMetrics | null>
@@ -94,6 +99,29 @@ export function DataFetchingProvider({
 		apollo: null,
 		useEffect: null,
 	});
+
+	// Use the data promise if provided
+	// This acts like Suspense - if the promise hasn't resolved yet, this component will suspend
+	// When the server is selected as the method
+	const resolvedServerData =
+		selectedMethod === "server" && dataPromise ? use(dataPromise) : null;
+
+	// When the server method is selected and we have resolved data, update the state
+	useEffect(() => {
+		if (selectedMethod === "server" && resolvedServerData) {
+			setServerData(resolvedServerData);
+
+			// Record performance metrics for server fetching
+			// Since this is server-side, these are simulated values
+			updatePerformanceMetrics("server", {
+				fetchDuration: 50, // Server fetch is typically fast as it's closer to the data source
+				loadingTime: 0, // No client loading time for server components
+				renderTime: 10, // Render time is minimal as the data is ready before hydration
+				cacheHit: false, // We're not caching in this demo
+				bundleSize: 0, // No additional JS bundle size for server components
+			});
+		}
+	}, [selectedMethod, resolvedServerData]);
 
 	// Actions
 	const triggerFetch = useCallback(() => {
@@ -147,7 +175,7 @@ export function DataFetchingProvider({
 			selectedMethod,
 			isLoading,
 			error,
-			serverData: initialServerData,
+			serverData: serverData || resolvedServerData,
 			clientData,
 			fetchConfig,
 			performanceMetrics,
@@ -163,7 +191,8 @@ export function DataFetchingProvider({
 			selectedMethod,
 			isLoading,
 			error,
-			initialServerData,
+			serverData,
+			resolvedServerData,
 			clientData,
 			fetchConfig,
 			performanceMetrics,

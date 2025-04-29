@@ -25,9 +25,7 @@ export function LiveLaboratory() {
 
 			<div className="mt-4">
 				{selectedMethod === "react-query" && <ReactQueryDemo />}
-				{selectedMethod === "server" && serverData && (
-					<ServerComponentDemo serverData={serverData} />
-				)}
+				{selectedMethod === "server" && <ServerComponentDemo serverData={serverData} />}
 				{selectedMethod === "apollo" && <ApolloClientDemo />}
 				{selectedMethod === "useEffect" && <UseEffectDemo />}
 			</div>
