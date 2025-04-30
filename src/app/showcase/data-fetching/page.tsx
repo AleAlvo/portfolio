@@ -108,47 +108,46 @@ export default function DataFetchingShowcase() {
 	return (
 		<div className="flex flex-col w-full min-h-screen">
 			<div className="container mx-auto px-4 py-8">
-				{/* Static content that should load immediately */}
-				<div>
-					<h1 className="text-3xl font-bold">Data Fetching Showcase</h1>
-					<SimpleBreadcrumb
-						crumbs={[
-							{ label: "Home", href: "/" },
-							{ label: "Showcase", href: "/showcase" },
-							{ label: "Data Fetching" },
-						]}
-						badge="Page - server component"
-						className="mb-6"
-					/>
-
-					<div className="prose max-w-none mb-8">
-						<h2 className="text-2xl font-heading mb-4">
-							Understanding Data Fetching in React
-						</h2>
-						<p className="mb-4">
-							Modern React applications offer multiple approaches to fetching data, each
-							with their own advantages and use cases. This showcase demonstrates
-							different techniques with the SpaceX API.
-						</p>
-						<h3 className="text-xl font-heading mt-6 mb-3">What You&apos;ll See</h3>
-						<ul className="list-disc pl-6 mb-4">
-							<li>
-								Server Components with native <code>fetch</code>
-							</li>
-							<li>Client Components with TanStack React Query</li>
-							<li>Apollo Client with GraphQL</li>
-							<li>
-								Basic <code>useEffect</code> approach
-							</li>
-						</ul>
-					</div>
-				</div>
-
 				{/* Pass the data promise to the DataFetchingProvider */}
 				<DataFetchingProvider dataPromise={dataPromise}>
 					<div className="grid grid-cols-1 lg:grid-cols-10 gap-8">
 						{/* Left column for explanation and performance metrics */}
 						<section className="concept-canvas flex flex-col space-y-6 lg:col-span-4">
+							<div>
+								<h1 className="text-3xl font-bold">Data Fetching Showcase</h1>
+								<SimpleBreadcrumb
+									crumbs={[
+										{ label: "Home", href: "/" },
+										{ label: "Showcase", href: "/showcase" },
+										{ label: "Data Fetching" },
+									]}
+									badge="Page - server component"
+									className="mb-6"
+								/>
+
+								<div className="prose max-w-none mb-8">
+									<h2 className="text-2xl font-heading mb-4">
+										Understanding Data Fetching in React
+									</h2>
+									<p className="mb-4">
+										Modern React applications offer multiple approaches to fetching data,
+										each with their own advantages and use cases. This showcase
+										demonstrates different techniques with the SpaceX API.
+									</p>
+									<h3 className="text-xl font-heading mt-6 mb-3">What You&apos;ll See</h3>
+									<ul className="list-disc pl-6 mb-4">
+										<li>
+											Server Components with native <code>fetch</code>
+										</li>
+										<li>Client Components with TanStack React Query</li>
+										<li>Apollo Client with GraphQL</li>
+										<li>
+											Basic <code>useEffect</code> approach
+										</li>
+									</ul>
+								</div>
+							</div>
+
 							{/* Performance metrics panel with its own Suspense boundary */}
 							<Suspense fallback={<PerformancePanelSkeleton />}>
 								<PerformancePanel />

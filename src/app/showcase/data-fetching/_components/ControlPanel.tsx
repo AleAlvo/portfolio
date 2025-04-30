@@ -27,9 +27,11 @@ export function ControlPanel() {
 	];
 
 	return (
-		<div className="neo-brutalism theme-tertiary-dark p-3 rounded-md">
+		<div className="neo-brutalism theme-secondary p-3 rounded-md">
 			<div className="flex items-center justify-between mb-2">
-				<h2 className="font-heading text-base">Control Panel</h2>
+				<Badge variant="default" className="text-xs font-normal">
+					Control Panel
+				</Badge>
 				{isLoading && (
 					<Badge variant="neutral" className="neo-brutalism text-xs">
 						Loading...
@@ -40,57 +42,53 @@ export function ControlPanel() {
 			<div className="space-y-3">
 				{/* Fetch method selection */}
 				<div className="space-y-1">
-					<div className="flex flex-wrap gap-1">
+					<div className="flex w-full gap-4">
 						{fetchMethods.map((method) => (
 							<Button
 								key={method.value}
 								variant={selectedMethod === method.value ? "default" : "secondary"}
 								size="sm"
 								onClick={() => setSelectedMethod(method.value as FetchMethodType)}
-								className="neo-brutalism-hover font-heading text-xs h-8 px-2">
+								className="neo-brutalism-hover font-black text-xs h-8 px-2 flex-1">
 								{method.label}
 							</Button>
 						))}
 					</div>
 				</div>
 
-				{/* Fetch controls */}
-				<div className="flex flex-wrap gap-1">
+				{/* Combined row for fetch buttons and configuration toggles */}
+				<div className="flex items-center gap-2 flex-wrap">
 					<Button
-						variant="default"
+						variant="secondary-alt"
 						size="sm"
 						onClick={triggerFetch}
 						disabled={isLoading || selectedMethod === "server"}
-						className="neo-brutalism-hover theme-primary-dark h-8 px-2 text-xs">
+						className="h-7 px-2 text-xs">
 						Fetch Data
 					</Button>
 					<Button
-						variant="secondary"
+						variant="secondary-alt"
 						size="sm"
 						onClick={clearCache}
-						className="neo-brutalism-hover h-8 px-2 text-xs">
+						className="h-7 px-2 text-xs">
 						Clear Cache
 					</Button>
-				</div>
 
-				{/* Configuration toggles in a compact row */}
-				<div className="flex items-center gap-2 flex-wrap">
-					<div className="neo-brutalism p-1 bg-white rounded-md flex items-center space-x-1 text-xs">
-						<label htmlFor="simulate-error" className="font-heading pl-1">
+					<div className="bg-white rounded-md flex items-center space-x-2 text-xs border-2 border-black p-1">
+						<label htmlFor="simulate-error" className="font-black pl-1">
 							Error
 						</label>
 						<Switch
 							id="simulate-error"
 							checked={fetchConfig.simulateError}
 							onCheckedChange={(checked) => updateFetchConfig({ simulateError: checked })}
-							className="neo-brutalism h-4 w-8"
 						/>
 					</div>
 
-					<div className="neo-brutalism p-1 bg-white rounded-md flex-1 flex items-center space-x-1">
+					<div className="bg-white rounded-md flex-1 flex items-center space-x-1 border-2 border-black p-1">
 						<label
 							htmlFor="delay-slider"
-							className="text-xs font-heading pl-1 whitespace-nowrap">
+							className="text-xs font-black pl-1 whitespace-nowrap">
 							Delay: {fetchConfig.simulateDelay}ms
 						</label>
 						<input

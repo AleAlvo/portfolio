@@ -247,6 +247,11 @@ html.dark body::-webkit-scrollbar-thumb {
 		box-shadow: none;
 	}
 
+	/* Override for buttons that shouldn't transform on hover */
+	.no-hover-transform:hover {
+		transform: translate(0, 0) !important;
+	}
+
 	/* Theme color presets for quick application */
 	.theme-primary {
 		--component-bg: var(--primary-main);
